@@ -1,9 +1,8 @@
 pipeline {
-   agent { docker { image 'mcr.microsoft.com/playwright:v1.55.0-noble' } }
+   agent { docker { image 'mcr.microsoft.com/playwright:v1.54.2-noble' } }
    stages {
       stage('e2e-tests') {
-         steps {
-            git url: 'https://github.com/djgarciab/playwright-e2e.git', branch: 'main'
+         steps {            
             sh 'npm ci'
             sh 'npx playwright test'
          }
